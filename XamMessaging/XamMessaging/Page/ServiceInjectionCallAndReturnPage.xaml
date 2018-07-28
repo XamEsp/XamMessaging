@@ -1,0 +1,22 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:XamMessaging.ViewModel;assembly=XamMessaging"
+             x:Class="XamMessaging.Page.ServiceInjectionCallAndReturnPage"
+             Title="Service Injection">
+    <ContentPage.BindingContext>
+        <viewModel:ServiceInjectionCallAndReturnViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Button Command="{Binding ExecuteSomeOperationCommand}" Text="Do Something"/>
+
+            <ListView 
+                ItemsSource="{Binding Operations}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" 
+                BackgroundColor="DarkSalmon"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

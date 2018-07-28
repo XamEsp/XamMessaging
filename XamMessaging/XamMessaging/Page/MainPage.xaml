@@ -1,0 +1,12 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamMessaging.Page.MainPage"
+             Title="Simple Message Options">
+
+    <StackLayout Spacing="0">
+        <Button Clicked="MessagingCenterButtonClicked" Text="Messaging Center" BackgroundColor="Aquamarine"/>
+        <Button Clicked="EventHandlerButtonClicked" Text="Event Handler" BackgroundColor="YellowGreen"/>
+        <Button Clicked="ServiceInjectionButtonClicked" Text="Service Injection" BackgroundColor="DarkSalmon"/>
+    </StackLayout>
+
+</ContentPage>

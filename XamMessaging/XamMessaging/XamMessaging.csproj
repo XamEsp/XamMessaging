@@ -5,11 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.1" />
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="MessagingCenterCallAndReturnPage.xaml">
+    <Compile Update="Page\ServiceInjectionCallAndReturnPage.xaml.cs">
+      <DependentUpon>ServiceInjectionCallAndReturnPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Page\EventHandlerCallAndReturnPage.xaml.cs">
+      <DependentUpon>EventHandlerCallAndReturnPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Page\ServiceInjectionCallAndReturnPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Page\EventHandlerCallAndReturnPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Page\MessagingCenterCallAndReturnPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>

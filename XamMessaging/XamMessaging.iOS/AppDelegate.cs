@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using XamMessaging.Page;
 
 namespace XamMessaging.iOS
 {

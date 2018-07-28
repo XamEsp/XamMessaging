@@ -1,32 +1,43 @@
 ﻿using System.Diagnostics;
+using Acr.UserDialogs;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamMessaging.ViewModel;
 
 // https://docs.microsoft.com/en-us/dotnet/api/Xamarin.Forms.MessagingCenter?view=xamarin-forms
-namespace XamMessaging
+namespace XamMessaging.Page
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MessagingCenterCallAndReturnPage
     {
+        private MessagingCenterCallAndReturnViewModel Vm => BindingContext as MessagingCenterCallAndReturnViewModel;
+
         public MessagingCenterCallAndReturnPage()
         {
             InitializeComponent();
-
-            ReportStackLayout.Children.Clear();
         }
 
-        public void HandleCall(MessagingCenterCallAndReturnViewModel sender)
+        public async void HandleConfirmation(MessagingCenterCallAndReturnViewModel sender)
         {
             Debug.WriteLine("Handling Call from ViewModel");
-            var count = ReportStackLayout.Children.Count;
-            ReportStackLayout.Children.Add(new Label { Text = $"Handling Call from ViewModel {count}" });
+            var config = new ConfirmConfig()
+            {
+                Title = "Confirmation",
+                Message = "Would you like to perform the operation?",
+                OkText = "Yes",
+                CancelText = "No",
+            };
+            if (await UserDialogs.Instance.ConfirmAsync(config))
+            {
+                Vm.DoSomething();
+            }
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            MessagingCenter.Subscribe<MessagingCenterCallAndReturnViewModel>(this, "CallViewFromViewModel", HandleCall);
+            MessagingCenter.Subscribe<MessagingCenterCallAndReturnViewModel>(this, "CallViewFromViewModel", HandleConfirmation);
         }
 
         protected override void OnDisappearing()
