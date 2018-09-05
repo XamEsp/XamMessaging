@@ -12,10 +12,14 @@ namespace XamMessaging.ViewModel
         private readonly IConfirmationService _confirmationService;
         public ICommand ExecuteSomeOperationCommand { get; set; }
 
-        public ServiceInjectionCallAndReturnViewModel()
+        public ServiceInjectionCallAndReturnViewModel() : this(DependencyService.Get<IConfirmationService>())
         {
+        }
+
+        public ServiceInjectionCallAndReturnViewModel(IConfirmationService confirmationService)
+        {
+            _confirmationService = confirmationService;
             ExecuteSomeOperationCommand = new Command(DoSomething);
-            _confirmationService = DependencyService.Get<IConfirmationService>();
         }
 
         public ObservableCollection<string> Operations { get; set; } = new ObservableCollection<string>();
