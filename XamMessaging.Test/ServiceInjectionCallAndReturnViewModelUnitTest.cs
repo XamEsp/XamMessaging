@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using XamMessaging.Service;
 using XamMessaging.ViewModel;
 
@@ -11,10 +12,10 @@ namespace XamMessaging.Test
         public void CanCreateViewModelOk()
         {
             // Arrange
-            var service = new ConfirmationService();    // TODO: create and use a mock with moq
+            var service = new Mock<IConfirmationService>();
 
             // Act
-            var vm = new ServiceInjectionCallAndReturnViewModel(service);
+            var vm = new ServiceInjectionCallAndReturnViewModel(service.Object);
 
             // Assert
             Assert.IsNotNull(vm);
