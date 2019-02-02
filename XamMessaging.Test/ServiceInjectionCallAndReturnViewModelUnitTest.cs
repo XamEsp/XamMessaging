@@ -30,6 +30,7 @@ namespace XamMessaging.Test
             service.Setup(m => m.AskConfirmation(It.IsAny<string>())).ReturnsAsync(true);
 
             var vm = new ServiceInjectionCallAndReturnViewModel(service.Object);
+            vm.Initialize( "Test" );
 
             var startingNumberOfOperation = vm.Operations.Count;
 

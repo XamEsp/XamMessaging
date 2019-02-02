@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms.Xaml;
+using XamMessaging.ViewModel;
 
 namespace XamMessaging.Page
 {
@@ -9,5 +10,13 @@ namespace XamMessaging.Page
         {
             InitializeComponent();
         }
+
+       protected override void OnAppearing()
+       {
+          base.OnAppearing();
+
+          var context = (ServiceInjectionCallAndReturnViewModel) BindingContext;
+          context.Initialize("My parameter");
+       }
     }
 }

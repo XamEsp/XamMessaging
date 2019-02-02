@@ -9,7 +9,9 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Button Command="{Binding ExecuteSomeOperationCommand}" Text="Do Something"/>
+            <Label Text="{Binding Message}" />
+
+            <Button Command="{Binding ExecuteSomeOperationCommand}" IsVisible="{Binding ButtonIsVisible}"  Text="Do Something"/>
 
             <ListView 
                 ItemsSource="{Binding Operations}"
