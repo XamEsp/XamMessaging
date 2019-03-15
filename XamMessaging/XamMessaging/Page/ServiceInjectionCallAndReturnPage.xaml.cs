@@ -16,7 +16,7 @@ namespace XamMessaging.Page
           base.OnAppearing();
 
           var context = (ServiceInjectionCallAndReturnViewModel) BindingContext;
-          context.Initialize("My parameter");
+          context.Initialize("Hello MVPs");
        }
     }
 }

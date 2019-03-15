@@ -17,7 +17,7 @@
                 ItemsSource="{Binding Operations}"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand" 
-                BackgroundColor="DarkSalmon"/>
+                BackgroundColor="White"/>
 
         </StackLayout>
     </ContentPage.Content>

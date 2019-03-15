@@ -59,7 +59,7 @@ namespace XamMessaging.ViewModel
          Debug.WriteLine("Handling Call in the ViewModel");
          if (await _confirmationService.AskConfirmation(Message))
          {
-            Operations.Add($"Handling Operation {Operations.Count}");
+            Operations.Add($"You said yes! {Operations.Count}");
          }
       }
 
